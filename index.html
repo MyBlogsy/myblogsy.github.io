@@ -33,6 +33,7 @@
             background: url('') no-repeat center center/cover;
             filter: blur(10px); /* Apply blur filter */
             z-index: -1; /* Behind the content */
+            transition: background-position 1s ease-in-out; /* Slide transition */
         }
         .header-content {
             position: relative;
@@ -148,10 +149,14 @@
     var currentIndex = 0;
     headerBlur.style.backgroundImage = 'url("' + backgroundImages[currentIndex] + '")';
 
-    // Function to change background image every 5 seconds
+    // Function to change background image with sliding effect
     setInterval(function() {
         currentIndex = (currentIndex + 1) % backgroundImages.length;
         headerBlur.style.backgroundImage = 'url("' + backgroundImages[currentIndex] + '")';
+        headerBlur.style.backgroundPosition = '100% 0'; // Slide from right to left
+        setTimeout(function() {
+            headerBlur.style.backgroundPosition = '0 0'; // Slide back to initial position
+        }, 1000); // Change duration
     }, 5000); // Change image every 5 seconds
 </script>
 
