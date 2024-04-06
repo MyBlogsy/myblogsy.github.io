@@ -143,9 +143,16 @@
         return backgroundImages[randomIndex];
     }
 
-    // Set the background image
+    // Set the initial background image
     var headerBlur = document.querySelector('.header-blur');
-    headerBlur.style.backgroundImage = 'url("' + getRandomBackgroundImage() + '")';
+    var currentIndex = 0;
+    headerBlur.style.backgroundImage = 'url("' + backgroundImages[currentIndex] + '")';
+
+    // Function to change background image every 5 seconds
+    setInterval(function() {
+        currentIndex = (currentIndex + 1) % backgroundImages.length;
+        headerBlur.style.backgroundImage = 'url("' + backgroundImages[currentIndex] + '")';
+    }, 5000); // Change image every 5 seconds
 </script>
 
 </body>
