@@ -13,7 +13,7 @@
 // Database connection
 $servername = "localhost";
 $username = "Towtik"; // Your MySQL username
-$password = "Tess2020t"; // Your MySQL password
+$password = "fuckU12"; // Your MySQL password
 $dbname = "blog";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
