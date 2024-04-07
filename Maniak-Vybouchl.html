@@ -44,31 +44,19 @@
             max-width: 800px;
             margin: 20px auto;
             padding: 0 20px;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: flex-start;
         }
         .post {
             margin-bottom: 40px;
-            display: flex;
-            align-items: center;
-        }
-        .post-image {
-            flex: 0 0 200px; /* Increased image width */
-            margin-right: 20px;
-        }
-        .post-image img {
-            width: 100%;
-            border-radius: 10px;
         }
         .post-content {
-            flex: 1;
-        }
-        .post-content p {
             margin-bottom: 20px;
         }
         .post-content h2 {
             margin-bottom: 10px;
+        }
+        .post-image img {
+            width: 100%;
+            border-radius: 10px;
         }
         hr {
             border: none;
@@ -100,46 +88,16 @@
             <h2>Co bude dál?</h2>
             <p>Situace vyvolává mnoho otázek ohledně dalšího Maniakovo vzdělávání v oblasti. Očekává se, že se studenti a personál budou muset přesunout do jiných Maniaků v okolí.</p>
         </div>
-        <div class="post-image">
-            <img src="https://myblogsy.github.io/cdn/manaik.png" alt="Maniak">
-        </div>
+    </div>
+
+    <!-- Image below text -->
+    <div class="post-image">
+        <img src="https://myblogsy.github.io/cdn/manaik.png" alt="Maniak">
     </div>
 
     <!-- Additional posts can be added here -->
 
 </div>
-
-<script>
-    // Array of background image URLs
-    var backgroundImages = [
-        'https://images8.alphacoders.com/134/1348288.jpeg',
-        'https://images.alphacoders.com/594/594341.jpg',
-        'https://images7.alphacoders.com/132/1328228.png',
-        'https://images4.alphacoders.com/134/1347287.jpeg',
-        'https://images4.alphacoders.com/134/thumb-440-1341416.webp',
-        'https://images4.alphacoders.com/135/1355291.jpeg',
-        'https://images2.alphacoders.com/130/1308322.jpeg',
-        'https://images3.alphacoders.com/132/1322308.jpeg',
-        'https://images7.alphacoders.com/133/1330715.png'
-    ];
-
-    // Function to randomly select a background image from the array
-    function getRandomBackgroundImage() {
-        var randomIndex = Math.floor(Math.random() * backgroundImages.length);
-        return backgroundImages[randomIndex];
-    }
-
-    // Set the initial background image
-    var headerBlur = document.querySelector('.header-blur');
-    var currentIndex = 0;
-    headerBlur.style.backgroundImage = 'url("' + backgroundImages[currentIndex] + '")';
-
-    // Function to change background image with sliding effect
-    setInterval(function() {
-        currentIndex = (currentIndex + 1) % backgroundImages.length;
-        headerBlur.style.backgroundImage = 'url("' + backgroundImages[currentIndex] + '")';
-    }, 5000); // Change image every 5 seconds
-</script>
 
 </body>
 </html>
