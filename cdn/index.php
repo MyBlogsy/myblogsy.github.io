@@ -1,7 +1,7 @@
 <?php
 
 // Define the folder you want to browse
-$folder = 'uploads/';
+$folder = 'icons/';
 
 // Get the list of files in the folder
 $files = scandir($folder);
