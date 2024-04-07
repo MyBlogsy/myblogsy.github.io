@@ -60,7 +60,7 @@ def setup():
         case 0:
             mode = "WhatHow"
 
-            url, session.headers.update = "http://counter11.freecounterstat.com/private/counter.php?c=pdz4dufhlf9qlk4krksnw7twxbhlez2e", ({'referer': "https://whathow.neocities.org/"})
+            url, session.headers.update = "https://www.youtube.com/live_chat?is_popout=1&v=cCzdt2Re9uk", ({'referer': "https://www.youtube.com/watch?v=cCzdt2Re9uk"})
         case 1:
             mode = "Jared"
             # raise ResourceWarning(f"this mode,,, uhh,,, {Fore.RED}doesn't work{Style.RESET_ALL},,, 3:")
