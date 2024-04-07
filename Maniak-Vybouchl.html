@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Škola Jana Železného Se Zavírá</title>
+    <!-- Link to the favicon.ico -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- Your CSS styles remain unchanged -->
+    <style>
+        body {
+            font-family: 'Dosis', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://myblogsy.github.io/cdn/manaik.png') no-repeat center center fixed;
+            background-size: cover;
+            color: white; /* Text color set to white */
+            font-weight: bold; /* All text made bold */
+        }
+        header {
+            position: relative;
+            background-color: transparent; /* Transparent background */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            overflow: hidden; /* Hide overflow to prevent blurry edges */
+        }
+        .header-blur {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+            z-index: -1; /* Behind the content */
+            filter: blur(5px); /* Apply blur effect to the background */
+        }
+        .header-content {
+            position: relative;
+            z-index: 1; /* Above the blurred background */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a black outline to the text */
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+        .post {
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+        }
+        .post-image {
+            flex: 0 0 200px; /* Increased image width */
+            margin-right: 20px;
+        }
+        .post-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .post-content {
+            flex: 1;
+        }
+        .post-content p {
+            margin-bottom: 20px;
+        }
+        .post-content h2 {
+            margin-bottom: 10px;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #ccc;
+            margin: 20px 0;
+        }
+    </style>
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="Maniak CZech Vybouchl...">
+    <meta property="og:description" content="Vítejte, milí čtenáři, v dnešním příspěvku, který přináší smutnou, avšak nevyhnutelnou zprávu...">
+    <meta property="og:image" content="https://myblogsy.github.io/cdn/manaik.png">
+</head>
+<body>
+
+<header>
+    <div class="header-blur"></div>
+    <div class="header-content">
+        <h1>Maniak_CZech Vybouchl</h1>
+    </div>
+</header>
+
+<div class="container">
+    <div class="post">
+        <div class="post-content">
+            <h2>Co se stalo?</h2>
+            <p>Maniak_CZech Dostal Fotky Dědků Co Se Mu Hodně Nelíbilo Takže Vybouchl.</p>
+            <h2>Proč By To Někdo Dělal?</h2>
+            <p>Někdo Kdo Nechtěl Aby Maniak_CZech Žil Mu Poslal Hodně Dědků.</p>
+            <h2>Co bude dál?</h2>
+            <p>Situace vyvolává mnoho otázek ohledně dalšího Maniakovo vzdělávání v oblasti. Očekává se, že se studenti a personál budou muset přesunout do jiných Maniaků v okolí.</p>
+        </div>
+        <div class="post-image">
+            <img src="https://myblogsy.github.io/cdn/manaik.png" alt="Maniak">
+        </div>
+    </div>
+
+    <!-- Additional posts can be added here -->
+
+</div>
+
+<script>
+    // Array of background image URLs
+    var backgroundImages = [
+        'https://images8.alphacoders.com/134/1348288.jpeg',
+        'https://images.alphacoders.com/594/594341.jpg',
+        'https://images7.alphacoders.com/132/1328228.png',
+        'https://images4.alphacoders.com/134/1347287.jpeg',
+        'https://images4.alphacoders.com/134/thumb-440-1341416.webp',
+        'https://images4.alphacoders.com/135/1355291.jpeg',
+        'https://images2.alphacoders.com/130/1308322.jpeg',
+        'https://images3.alphacoders.com/132/1322308.jpeg',
+        'https://images7.alphacoders.com/133/1330715.png'
+    ];
+
+    // Function to randomly select a background image from the array
+    function getRandomBackgroundImage() {
+        var randomIndex = Math.floor(Math.random() * backgroundImages.length);
+        return backgroundImages[randomIndex];
+    }
+
+    // Set the initial background image
+    var headerBlur = document.querySelector('.header-blur');
+    var currentIndex = 0;
+    headerBlur.style.backgroundImage = 'url("' + backgroundImages[currentIndex] + '")';
+
+    // Function to change background image with sliding effect
+    setInterval(function() {
+        currentIndex = (currentIndex + 1) % backgroundImages.length;
+        headerBlur.style.backgroundImage = 'url("' + backgroundImages[currentIndex] + '")';
+    }, 5000); // Change image every 5 seconds
+</script>
+
+</body>
+</html>
