@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Škola Jana Železného Se Zavírá</title>
+    <title>Maniak_CZech Vybouchl</title>
     <!-- Link to the favicon.ico -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <!-- Your CSS styles remain unchanged -->
@@ -12,10 +12,11 @@
             font-family: 'Dosis', sans-serif;
             margin: 0;
             padding: 0;
-            background: url('https://myblogsy.github.io/cdn/manaik.png') no-repeat center center fixed;
+            background: url(https://myblogsy.github.io/main/cdn/maniak-vybuch.jpg') no-repeat center center fixed;
             background-size: cover;
             color: white; /* Text color set to white */
             font-weight: bold; /* All text made bold */
+            position: relative; /* Ensure proper layering */
         }
         header {
             position: relative;
@@ -24,26 +25,46 @@
             padding: 20px;
             text-align: center;
             overflow: hidden; /* Hide overflow to prevent blurry edges */
+            z-index: 2; /* Ensure header is above blurred background */
         }
-        .header-blur {
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 110%;
+            background: url('https://myblogsy.github.io/main/cdn/maniak-background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            filter: blur(10px); /* Apply blur effect to the background */
+            z-index: 1; /* Behind the content */
+        }
+        .header-content {
+            position: relative;
+            z-index: 2; /* Above the blurred background */
+        }
+        body::before {
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
-            z-index: -1; /* Behind the content */
-            filter: blur(5px); /* Apply blur effect to the background */
+            background: inherit; /* Inherit background image */
+            filter: blur(10px); /* Apply blur effect to the background */
+            z-index: 1; /* Behind the content */
         }
         .header-content {
             position: relative;
-            z-index: 1; /* Above the blurred background */
+            z-index: 3; /* Above the blurred background */
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a black outline to the text */
         }
         .container {
             max-width: 800px;
             margin: 20px auto;
             padding: 0 20px;
+            position: relative; /* Ensure proper layering */
+            z-index: 2; /* Above the blurred background */
         }
         .post {
             margin-bottom: 40px;
@@ -72,7 +93,6 @@
 <body>
 
 <header>
-    <div class="header-blur"></div>
     <div class="header-content">
         <h1>Maniak_CZech Vybouchl</h1>
     </div>
