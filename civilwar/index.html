@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Futuristic Video Player</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@700&display=swap" rel="stylesheet"> <!-- Google Font -->
+    <title>hehe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -11,137 +11,153 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* full height viewport */
-            background: radial-gradient(circle, #282828, #1a1a1a); /* radial gradient background */
+            height: 100vh;
+            background: radial-gradient(circle, #282828, #1a1a1a);
             color: white;
-            font-family: 'Dosis', sans-serif; /* apply Dosis font */
+            font-family: 'Dosis', sans-serif;
         }
 
         .video-container {
-            position: relative; /* required for absolute positioning of control bar */
-            border: 3px solid #00ffff; /* cyan border */
-            box-shadow: 0 10px 20px rgba(0, 255, 255, 0.5); /* cyan glow effect */
-            border-radius: 15px; /* rounded corners */
-            padding: 10px; /* spacing */
-            background: rgba(0, 0, 0, 0.7); /* semi-transparent black background */
-            transition: transform 0.3s; /* smooth transition on hover */
-            width: 1000px; /* set width for consistency */
-            height: 420px; /* set height for consistency */
+            position: relative;
+            border: 3px solid #00ffff;
+            box-shadow: 0 10px 20px rgba(0, 255, 255, 0.5);
+            border-radius: 15px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            transition: transform 0.3s;
+            width: 1000px;
+            height: 410px;
+        }
+
+        .video-container.fullscreen {
+            height: 100vh;
+            width: 100vw;
+            border-radius: 0;
+            box-shadow: none;
+            transition: none;
         }
 
         .video-container:hover {
-            transform: scale(1.05); /* slight scaling on hover */
+            transform: scale(1.05);
         }
 
         video {
-            border-radius: 10px; /* slightly rounded corners for the video */
-            width: 100%; /* full width within the container */
-            height: auto; /* maintain aspect ratio */
+            border-radius: 10px;
+            width: 100%;
+            height: auto;
         }
 
         .control-bar {
-            position: absolute; /* place control bar at the bottom of the video */
-            bottom: 0; /* stick to the bottom */
-            left: 50%; /* center horizontally */
-            transform: translateX(-50%); /* center horizontally */
-            display: flex; /* flex layout for controls */
-            justify-content: space-between; /* distribute controls evenly */
-            align-items: center; /* align controls vertically */
-            background: rgba(0, 0, 0, 0.7); /* semi-transparent control bar */
-            padding: 10px; /* padding for controls */
-            border-radius: 10px; /* rounded corners for the control bar */
-            box-shadow: 0 5px 10px rgba(0, 255, 255, 0.3); /* subtle glow */
-            width: 90%; /* make control bar almost full width */
-        }
-
-        .progress-bar {
-            position: relative; /* relative positioning for progress bar */
-            flex: 1; /* fill available space */
-            height: 10px; /* height of the progress bar */
-            background: gray; /* gray background */
-            border-radius: 5px; /* rounded corners */
-            cursor: pointer; /* allows clicks */
-            transition: height 0.3s; /* smooth transition */
-        }
-
-        .progress-bar:hover {
-            height: 15px; /* expand on hover */
-        }
-
-        .progress-indicator {
-            position: absolute; /* allows it to move within progress bar */
-            height: 100%; /* full height of the progress bar */
-            background: lightgreen; /* light green for the progress indicator */
-            border-radius: 5px; /* rounded corners */
-            width: 0%; /* initial width is 0 */
-        }
-
-        .progress-tooltip {
-            position: absolute; /* required for absolute positioning */
-            top: -25px; /* position tooltip above the progress bar */
-            transform: translateX(-50%); /* center the tooltip */
-            padding: 5px; /* padding around the text */
-            background: rgba(0, 0, 0, 0.7); /* semi-transparent tooltip background */
-            color: white; /* text color */
-            border-radius: 5px; /* rounded corners */
-            font-weight: bold; /* bold text */
-            display: none; /* hidden by default */
-            z-index: 10; /* ensure tooltip appears above other elements */
-        }
-
-        .timestamp {
-            flex-shrink: 0; /* don't shrink the timestamp */
-            padding: 0 10px; /* padding for readability */
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 255, 255, 0.3);
+            width: 90%;
+            z-index: 10;
         }
 
         .control-bar button {
-            background: none; /* no default button background */
-            border: 1px solid #00ffff; /* cyan border */
-            border-radius: 5px; /* rounded button corners */
-            color: white; /* text color */
-            padding: 8px; /* padding */
-            transition: 0.3s; /* smooth transition */
-            cursor: pointer; /* pointer cursor */
+            background: none;
+            border: 1px solid #00ffff;
+            border-radius: 5px;
+            color: white;
+            padding: 8px;
+            transition: 0.3s;
+            cursor: pointer;
         }
 
         .control-bar button:hover {
-            background: #00ffff; /* cyan hover background */
-            color: #000; /* change text color */
+            background: #00ffff;
+            color: #000;
+        }
+
+        .progress-bar {
+            flex: 1;
+            height: 10px;
+            background: gray;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: height 0.3s;
+        }
+
+        .progress-bar:hover {
+            height: 15px;
+        }
+
+        .progress-indicator {
+            height: 100%;
+            background: lightgreen;
+            border-radius: 5px;
+            width: 0;
+        }
+
+        .progress-tooltip {
+            position: absolute;
+            top: -25px;
+            transform: translateX(-50%);
+            padding: 5px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+            display: none;
+            z-index: 20;
+        }
+
+        .timestamp {
+            flex-shrink: 0;
+            padding: 0 10px;
         }
     </style>
 </head>
 <body>
-    <div class="video-container">
-        <video id="video-player" width="1000" height="500"> <!-- removed 'controls' -->
-            <source src="https://storage3-1.premiumcdn.net/76239605/MQwiKxUyZTr8coQfblTalUpXfWgi7KfAVSQjIdmh8asoghEJir3I7kFRzSWECq1iKPFaWHErSWru9ot8rS8Yfw8t1ahJmhYzF1VCd1ir8H5aTWLfgofDk.mp4?token=A1206ZyNVCax&expires=1714144579&sparams=token%2Cpath%2Cexpires&signature=ea5c659e6e7c54e98e7fb74801c42320104cdf81" type="video/mp4"> <!-- put your video URL -->
+    <div class="video-container" id="video-container">
+        <video id="video-player">
+            <source src="https://storage3-1.premiumcdn.net/76239605/MQwiKxUyZTr8coQfblTalUpXfWgi7KfAVSQjIdmh8asoghEJir3I7kFRzSWECq1iKPFaWHErSWru9ot8rS8Yfw8t1ahJmhYzF1VCd1ir8H5aTWLfgofDk.mp4?token=A1206ZyNVCax&expires=1714144579&sparams=token%2Cpath%2Cexpires&signature=ea5c659e6e7c54e98e7fb74801c42320104cdf81" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div class="control-bar">
             <button id="play-pause" onclick="playPause()">▶</button>
-            <button onclick="muteUnmute()">🔊/🔇</button>
-            <div class="progress-bar" onclick="seekVideo(event)" onmousemove="showTooltip(event)" onmouseleave="hideTooltip()"> <!-- handles hover -->
+            <button id="mute-unmute" onclick="muteUnmute()">🔊/🔇</button>
+            <div class="progress-bar" onclick="seekVideo(event)" onmousemove="showTooltip(event)" onmouseleave="hideTooltip()">
                 <div class="progress-indicator" id="progress-indicator"></div>
                 <div class="progress-tooltip" id="progress-tooltip"></div>
             </div>
             <div class="timestamp" id="timestamp">0:00</div>
-            <button onclick="toggleFullscreen()">⛶</button> <!-- Fullscreen button -->
+            <button onclick="toggleFullscreen()">⛶</button>
         </div>
     </div>
 
     <script>
         const videoPlayer = document.getElementById("video-player");
+        const videoContainer = document.getElementById("video-container");
         const playPauseButton = document.getElementById("play-pause");
         const progressIndicator = document.getElementById("progress-indicator");
         const progressTooltip = document.getElementById("progress-tooltip");
         const timestamp = document.getElementById("timestamp");
 
+        document.addEventListener("fullscreenchange", () => {
+            if (document.fullscreenElement) {
+                videoContainer.classList.add("fullscreen");
+            } else {
+                videoContainer.classList.remove("fullscreen");
+            }
+        });
+
         function playPause() {
             if (videoPlayer.paused) {
                 videoPlayer.play();
-                playPauseButton.innerHTML = "⏸️"; /* change to pause emoji */
+                playPauseButton.innerHTML = "⏸️";
             } else {
                 videoPlayer.pause();
-                playPauseButton.innerHTML = "▶"; /* change to play emoji */
+                playPauseButton.innerHTML = "▶";
             }
         }
 
@@ -150,48 +166,44 @@
         }
 
         function toggleFullscreen() {
-            if (videoPlayer.requestFullscreen) {
-                videoPlayer.requestFullscreen(); /* enter fullscreen mode */
-            } else if (videoPlayer.mozRequestFullScreen) {
-                videoPlayer.mozRequestFullScreen(); /* Firefox */
-            } else if (videoPlayer.webkitRequestFullscreen) {
-                videoPlayer.webkitRequestFullscreen(); /* Chrome, Safari, Opera */
-            } else if (videoPlayer.msRequestFullscreen) {
-                videoPlayer.msRequestFullscreen(); /* IE/Edge */
+            if (document.fullscreenElement) {
+                document.exitFullscreen();
+            } else {
+                videoContainer.requestFullscreen();
             }
         }
 
         videoPlayer.ontimeupdate = function() {
             const progress = (videoPlayer.currentTime / videoPlayer.duration) * 100;
-            progressIndicator.style.width = progress + "%"; /* update progress indicator */
-            
+            progressIndicator.style.width = `${progress}%`;
+
             const minutes = Math.floor(videoPlayer.currentTime / 60);
-            const seconds = Math.floor(videoPlayer.currentTime % 60).toString().padStart(2, '0'); /* ensure two-digit seconds */
-            timestamp.innerHTML = `${minutes}:${seconds}`; /* update timestamp */
+            const seconds = Math.floor(videoPlayer.currentTime % 60).toString().padStart(2, '0');
+            timestamp.innerHTML = `${minutes}:${seconds}`;
         };
 
         function seekVideo(event) {
-            const progressBar = event.currentTarget; /* the progress bar that was clicked */
-            const rect = progressBar.getBoundingClientRect(); /* dimensions of the progress bar */
-            const clickX = event.clientX - rect.left; /* position of the click */
-            const newTime = (clickX / rect.width) * videoPlayer.duration; /* calculate new video time */
-            videoPlayer.currentTime = newTime; /* set new current time in video */
+            const progressBar = event.currentTarget;
+            const rect = progressBar.getBoundingClientRect();
+            const clickX = event.clientX - rect.left;
+            const newTime = (clickX / rect.width) * videoPlayer.duration;
+            videoPlayer.currentTime = newTime;
         }
 
         function showTooltip(event) {
-            const progressBar = event.currentTarget; /* the progress bar */
-            const rect = progressBar.getBoundingClientRect(); /* dimensions of the progress bar */
-            const hoverX = event.clientX - rect.left; /* position of the hover */
-            const hoverTime = (hoverX / rect.width) * videoPlayer.duration; /* calculate time */
-            const tooltipText = `${Math.floor(hoverTime / 60)}:${Math.floor(hoverTime % 60).toString().padStart(2, '0')}`; /* format time */
-            
-            progressTooltip.innerHTML = tooltipText; /* set tooltip text */
-            progressTooltip.style.left = `${hoverX}px`; /* position tooltip */
-            progressTooltip.style.display = "block"; /* show tooltip */
+            const progressBar = event.currentTarget;
+            const rect = progressBar.getBoundingClientRect();
+            const hoverX = event.clientX - rect.left;
+            const hoverTime = (hoverX / rect.width) * videoPlayer.duration;
+            const tooltipText = `${Math.floor(hoverTime / 60)}:${Math.floor(hoverTime % 60).toString().padStart(2, '0')}`;
+
+            progressTooltip.innerHTML = tooltipText;
+            progressTooltip.style.left = `${hoverX}px`;
+            progressTooltip.style.display = "block";
         }
 
         function hideTooltip() {
-            progressTooltip.style.display = "none"; /* hide tooltip */
+            progressTooltip.style.display = "none";
         }
     </script>
 </body>
